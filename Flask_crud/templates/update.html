@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block context %}
+    {% if error %}
+         <p><strong>Error:</strong> {{ error }}
+      {% endif %}
+  {% for message in get_flashed_messages() %}
+        <h1 style="color: Green">{{ message }}</h1>
+    {% endfor %}
+
+    <form action="/update_emp" method="post">
+
+    <table align="center" border="2">
+    <tr><th>Add Employee</th></tr>
+    <tr><th><input type="text"  name="name" value="{{ emp.name }}"></th></tr>
+    <tr><th><input type="number" name="id" value="{{ emp.empId }}" readonly></th></tr>
+    <tr><th>DOJ<input type="text"  name="doj" value="{{ emp.doj }}"></th></tr>
+    <tr><th><input type="text"  name="designation" value="{{ emp.designation }}"></th></tr>
+    <tr><th><input type="number"  name="salary" value="{{ emp.salary }}"></th></tr>
+    <tr><th><input type="text" name="add" id="" cols="30" rows="10" value="{{ emp.address }}"></th></tr>
+    <tr><th><input type="number"  name="pno" value="{{ emp.phoneNo }}"></th></tr>
+    <tr><th><input type="email" name="email" value="{{ emp.email }}"></th></tr>
+    <tr><th><input type="password" name="pwd" value="{{ emp.password }}" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"></th></tr>
+    <tr><th><button type="submit">update</button></th></tr>
+
+
+    </table>
+    </form>
+{% endblock %}
