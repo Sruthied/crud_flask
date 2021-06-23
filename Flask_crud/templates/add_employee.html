@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block context %}
+    {% if error %}
+         <p><strong>Error:</strong> {{ error }}
+      {% endif %}
+  {% for message in get_flashed_messages() %}
+        <h1 style="color: Green">{{ message }}</h1>
+    {% endfor %}
+
+    <form action="/add_employee" method="post">
+
+    <table align="center" border="2">
+    <tr><th>Add Employee</th></tr>
+    <tr><th><input type="text" placeholder="Employee Name" name="name"></th></tr>
+    <tr><th><input type="number" placeholder="Employee Id" name="id" ></th></tr>
+    <tr><th>DOJ<input type="date"  name="doj"></th></tr>
+    <tr><th><input type="text" placeholder="Designation" name="designation"></th></tr>
+    <tr><th><input type="number" placeholder="Salary" name="salary"></th></tr>
+    <tr><th><textarea name="add" id="" cols="30" rows="10" placeholder="add"></textarea></th></tr>
+    <tr><th><input type="number" placeholder="Phone number" name="pno"></th></tr>
+    <tr><th><input type="email" placeholder="Email" name="email" ></th></tr>
+    <tr><th><input type="password" placeholder="Password" name="pwd" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"></th></tr>
+    <tr><th><button type="submit">Save</button></th></tr>
+
+
+    </table>
+    </form>
+{% endblock %}
