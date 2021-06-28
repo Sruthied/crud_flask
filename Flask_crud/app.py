@@ -3,7 +3,10 @@ import pymongo
 from mongoengine import Document, connect, StringField, IntField, DateTimeField, FloatField, EmailField, BooleanField, Q
 
 #db connection
-client = connect("Flask_mongodb")
+#client = connect("Flask_mongodb")
+
+client = PyMongo(app, uri="mongodb+srv://sruthi:Pa55w0rd@cluster0.lky5v.mongodb.net/Employee?retryWrites=true&w=majority")
+db = mongodb_client.db
 
 app = Flask(__name__)
 app.secret_key="zzz"
