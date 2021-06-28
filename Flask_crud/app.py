@@ -1,4 +1,3 @@
-import flask
 from flask import Flask, render_template, request, flash, url_for, redirect
 import pymongo
 from mongoengine import Document, connect, StringField, IntField, DateTimeField, FloatField, EmailField, BooleanField, Q
